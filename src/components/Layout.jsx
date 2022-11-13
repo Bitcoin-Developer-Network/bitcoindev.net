@@ -10,7 +10,7 @@ import { Navigation } from '@/components/Navigation'
 import { Prose } from '@/components/Prose'
 import { Search } from '@/components/Search'
 import { ThemeSelector } from '@/components/ThemeSelector'
-import { mainNavigation } from '@/routes'
+import BreadCrumbs from '@/components/BreadCrumbs'
 
 function GitHubIcon(props) {
   return (
@@ -118,6 +118,7 @@ function useTableOfContents(tableOfContents) {
 export function Layout({ children, title, tableOfContents, navigation }) {
   let router = useRouter()
   let isHomePage = router.pathname === '/'
+  let isDocsPage = router.pathname.includes('/docs')
   let allLinks = navigation.flatMap((section) => section.links)
   let linkIndex = allLinks.findIndex((link) => link.href === router.pathname)
   let previousPage = allLinks[linkIndex - 1]
@@ -152,6 +153,7 @@ export function Layout({ children, title, tableOfContents, navigation }) {
   return (
     <>
       <Header navigation={navigation} />
+      {isDocsPage && <BreadCrumbs />}
 
       {isHomePage && <Hero />}
 
