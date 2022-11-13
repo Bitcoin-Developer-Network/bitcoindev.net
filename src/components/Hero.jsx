@@ -14,7 +14,7 @@ const code = `export default {
   denom: 'sat',
   feerate: {
     max: 20,
-    conf-target: 2,
+    conf_target: 2,
   },
 }`
 
