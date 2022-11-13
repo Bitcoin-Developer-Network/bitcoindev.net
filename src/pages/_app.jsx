@@ -1,7 +1,10 @@
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 import { slugifyWithCounter } from '@sindresorhus/slugify'
 
 import { Layout } from '@/components/Layout'
+
+import * as nav from '@/routes'
 
 import 'focus-visible'
 import '@/styles/tailwind.css'
@@ -49,6 +52,7 @@ function collectHeadings(nodes, slugify = slugifyWithCounter()) {
 }
 
 export default function App({ Component, pageProps }) {
+  let router = useRouter()
   let title = pageProps.markdoc?.frontmatter.title
 
   let pageTitle =
@@ -61,13 +65,27 @@ export default function App({ Component, pageProps }) {
     ? collectHeadings(pageProps.markdoc.content)
     : []
 
+  // if pathname includes /bips/ then the navigation should be the bips navigation else the default navigation
+
+  console.log(router.pathname)
+
+  let navigation = router.pathname.includes('/bips')
+    ? nav.bipsNavigation
+    : nav.defaultNavigation
+
+  // let navigation = nav.defaultNavigation
+
   return (
     <>
       <Head>
         <title>{pageTitle}</title>
         {description && <meta name="description" content={description} />}
       </Head>
-      <Layout title={title} tableOfContents={tableOfContents}>
+      <Layout
+        title={title}
+        tableOfContents={tableOfContents}
+        navigation={navigation}
+      >
         <Component {...pageProps} />
       </Layout>
     </>
