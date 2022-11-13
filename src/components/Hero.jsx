@@ -10,15 +10,16 @@ import blurIndigoImage from '@/images/blur-indigo.png'
 
 const codeLanguage = 'javascript'
 const code = `export default {
-  strategy: 'predictive',
-  engine: {
-    cpus: 12,
-    backups: ['./storage/cache.wtf'],
+  strategy: 'bitcoin',
+  denom: 'sat',
+  feerate: {
+    max: 20,
+    conf-target: 2,
   },
 }`
 
 const tabs = [
-  { name: 'cache-advance.config.js', isActive: true },
+  { name: 'checkout.config.js', isActive: true },
   { name: 'package.json', isActive: false },
 ]
 
