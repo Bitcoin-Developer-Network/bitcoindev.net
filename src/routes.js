@@ -38,7 +38,7 @@ export const defaultNavigation = [
   // },
   {
     title: 'References',
-    links: [{ title: 'BIPS', href: '/docs/bips/getting-started' }],
+    links: [{ title: 'BIPS', href: '/docs/bips' }],
   },
   // {
   //   title: 'Contributing',
@@ -53,13 +53,18 @@ export const defaultNavigation = [
 export const bipsNavigation = [
   {
     title: 'BIPS Intro',
-    links: [{ title: 'Getting Started', href: '/docs/bips/getting-started' }],
+    links: [{ title: 'Getting Started', href: '/docs/bips' }],
   },
   {
     title: 'BIPS',
     links: [
       { title: '1 - BIP Purpose and Guidlines', href: '/docs/bips/1' },
       { title: '2 - BIP Process, Revised', href: '/docs/bips/2' },
+      { title: '11 - M-of-N Standard Transactions', href: '/docs/bips/11' },
+      {
+        title: '13 - Address Format for pay-to-script-hash',
+        href: '/docs/bips/13',
+      },
     ],
   },
 ]
