@@ -65,6 +65,10 @@ export const bipsNavigation = [
         title: '13 - Address Format for pay-to-script-hash',
         href: '/docs/bips/13',
       },
+      {
+        title: '14 - Protocol Version and User Agent',
+        href: '/docs/bips/14',
+      },
     ],
   },
 ]
