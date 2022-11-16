@@ -75,7 +75,7 @@ function useTableOfContents(tableOfContents) {
   let getHeadings = useCallback((tableOfContents) => {
     return tableOfContents
       .flatMap((node) => [node.id, ...node.children.map((child) => child.id)])
-      .map((id) => {
+      .map((id, i) => {
         let el = document.getElementById(id)
         if (!el) return
 
@@ -86,6 +86,7 @@ function useTableOfContents(tableOfContents) {
         // highlight the correct section. adding a quick 20px is a workaround that is working better.
         let top =
           window.scrollY + el.getBoundingClientRect().top - scrollMt - 20
+
         return { id, top }
       })
   }, [])
@@ -93,6 +94,7 @@ function useTableOfContents(tableOfContents) {
   useEffect(() => {
     if (tableOfContents.length === 0) return
     let headings = getHeadings(tableOfContents)
+
     function onScroll() {
       let top = window.scrollY
       let current = headings[0].id
@@ -128,17 +130,17 @@ export function Layout({ children, title, tableOfContents, navigation }) {
   )
   let currentSection = useTableOfContents(tableOfContents)
 
-  //tailwindui's syntax template did not change the url hash link while scrolling.
-  // this effect keeps the headers in-sync with the url.
-  // This currently has some issues when the page is scrolled to the bottom. Not a big deal though, as clicking on the
-  // items in the table of contents will still set the correct link. (important when sharing links that this continues to work)
-  useEffect(() => {
-    if (currentSection) {
-      let url = new URL(window.location)
-      url.hash = currentSection
-      window.history.replaceState(null, '', url.toString())
-    }
-  }, [currentSection])
+  // //tailwindui's syntax template did not change the url hash link while scrolling.
+  // // this effect keeps the headers in-sync with the url.
+  // // This currently has some issues when the page is scrolled to the bottom. Not a big deal though, as clicking on the
+  // // items in the table of contents will still set the correct link. (important when sharing links that this continues to work)
+  // useEffect(() => {
+  //   if (currentSection) {
+  //     let url = new URL(window.location)
+  //     url.hash = currentSection
+  //     window.history.replaceState(null, '', url.toString())
+  //   }
+  // }, [currentSection])
 
   function isActive(section) {
     if (section.id === currentSection) {
