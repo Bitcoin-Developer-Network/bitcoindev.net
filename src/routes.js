@@ -77,6 +77,10 @@ export const bipsNavigation = [
         title: '21 - URI Scheme',
         href: '/docs/bips/21',
       },
+      {
+        title: '22 - getblocktemplate - Fundamentals',
+        href: '/docs/bips/22',
+      },
     ],
   },
 ]
