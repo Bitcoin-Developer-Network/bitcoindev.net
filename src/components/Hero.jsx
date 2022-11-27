@@ -50,16 +50,16 @@ export function Hero() {
             />
             <div className="relative">
               <p className="inline bg-gradient-to-r from-indigo-200 via-sky-400 to-indigo-200 bg-clip-text font-display text-5xl tracking-tight text-transparent">
-                Never miss the cache again.
+                Build on Bitcoin!
               </p>
               <p className="mt-3 text-2xl tracking-tight text-slate-400">
-                Cache every single thing your app could ever do ahead of time,
-                so your code never even has to run at all.
+                Searchable docs, tutorials, references and guides <br />
+                for bitcoin builders, all in one place.
               </p>
               <div className="mt-8 flex gap-4 md:justify-center lg:justify-start">
                 <Button href="/">Get started</Button>
                 <Button href="/" variant="secondary">
-                  View on GitHub
+                  Jump to beginner&apos;s guide
                 </Button>
               </div>
             </div>

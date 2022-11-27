@@ -67,8 +67,6 @@ export default function App({ Component, pageProps }) {
 
   // if pathname includes /bips/ then the navigation should be the bips navigation else the default navigation
 
-  console.log(router.pathname)
-
   let navigation = router.pathname.includes('/bips')
     ? nav.bipsNavigation
     : nav.defaultNavigation

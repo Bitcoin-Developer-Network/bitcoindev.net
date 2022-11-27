@@ -81,6 +81,10 @@ export const bipsNavigation = [
         title: '22 - getblocktemplate - Fundamentals',
         href: '/docs/bips/22',
       },
+      {
+        title: '23 - getblocktemplate - Pooled Mining',
+        href: '/docs/bips/23',
+      },
     ],
   },
 ]
